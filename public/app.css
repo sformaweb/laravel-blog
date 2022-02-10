@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+
+body {
+    font-family: 'Noto Sans', sans-serif;
+    margin: 3% 10%;
+
+}
+
+h1 {
+    margin-bottom: 8%;
+}
+
+article {
+    max-width: 600px;
+    margin: auto;
+    margin-bottom: 5%;
+}
+
+article + article{
+    border-top: 1px solid #c5c5c5;
+    padding-top: 3rem;
+}
+
+p{
+    line-height: 1.6;
+}
