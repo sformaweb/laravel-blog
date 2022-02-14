@@ -12,6 +12,3 @@
 * O obxectivo é facer a páxina dinámica, recuperando as publicacións mediante funcións en PHP e non mediante _hard coding_.
 * Respecto á parte estética, traballaremos con _blades_ e vistas (_views_). Debemos crear un _layout_ no que engadir as ligazóns a arquivos css e js para non ter que repetilos en cada vista (ver capítulo 15). 
 * Para crear compoñentes, no arquivo _layout_ damos un nome seguindo a seguinte estrutura: @yield('nomesección). A continuación, no arquivo posts.blade creamos a sección (@section('nomesección)) e nela metemos o contido html que desexemos.
-
-
-(7:10- vídeo 12)
