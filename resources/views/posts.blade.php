@@ -1,5 +1,8 @@
+<h1>Blog de Formaweb</h1>
+
 <x-layout>
 @foreach ($posts as $post)
+
 <article>
     <h1>
         <a href="/posts/{{$post->slug}}">
