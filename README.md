@@ -12,3 +12,13 @@
 * O obxectivo é facer a páxina dinámica, recuperando as publicacións mediante funcións en PHP e non mediante _hard coding_.
 * Respecto á parte estética, traballaremos con _blades_ e vistas (_views_). Debemos crear un _layout_ no que engadir as ligazóns a arquivos css e js para non ter que repetilos en cada vista (ver capítulo 15). 
 * Para crear compoñentes, no arquivo _layout_ damos un nome seguindo a seguinte estrutura: @yield('nomesección). A continuación, no arquivo posts.blade creamos a sección (@section('nomesección)) e nela metemos o contido html que desexemos.
+
+### Base de datos
+
+* Creamos unha nova pola sobre a que seguir traballando chamada "bbdd-section4" no repositorio de git.
+* Imos empregar Eloquent, un ORM que inclúe Laravel que permite interactuar de forma sinxela coa BBDD (migracións, creación de táboas, etc.), así como o patrón _active record_.
+* Faremos uso de Artisan Tinker, a consola de comandos propia de Laravel.
+* Uso da clase Factory para a xestión da BBDD.
+* Crearase unha sección para autores e outra para categorías, podendo filtrar as publicacións por ambos criterios.
+
+

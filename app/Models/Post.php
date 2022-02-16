@@ -2,69 +2,24 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\ModelNotFoundException;
-use Illuminate\Support\Facades\File;
-use Spatie\YamlFrontMatter\YamlFrontMatter;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-class Post
+class Post extends Model
 {
+    use HasFactory;
 
-public $title;
-public $excerpt;
-public $date;
-public $body;
-public $slug;
+    protected $guarded= [];
 
-public function __construct($title, $excerpt, $date, $body, $slug)
-{
-  $this ->  title = $title;
-  $this ->  excerpt = $excerpt;
-  $this ->  date = $date;
-  $this ->  body = $body;
-  $this ->  slug = $slug;
-}
+    protected $with = ['category', 'author'];
 
-public static function all()
-{
+   public function category(){
+       return $this->belongsTo(Category::class);
+   }
 
-    return cache()-> rememberForever('posts.all',function(){
-        return collect(File::files(resource_path("posts")))
+   public function author(){
 
-        ->map(fn($file) =>
-             YamlFrontMatter::parseFile($file))
-        
-    
-        ->map(fn($document) =>
-             new Post(
-                $document->title,
-                $document->excerpt,
-                $document->date,
-                $document->body(),
-                $document->slug
-            ))
-            ->sortByDesc('date');
-    });
-  
-}
-
-    public static function find($slug)
-    {
-     //de todos os posts, atopa aquel co slug que foi solicitado
-     return static::all()->firstWhere('slug', $slug);
-
-    }
-
-    public static function findOrFail($slug)
-    {
-     
-     $post= static::all()->firstWhere('slug', $slug);
-
-     if (!$post){
-         throw new ModelNotFoundException();
-     }
-      
-     return $post;     
-
-    }
+    return $this->belongsTo(User::class, 'user_id');
+   }
 
 }
